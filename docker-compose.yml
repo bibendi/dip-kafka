@@ -59,6 +59,8 @@ services:
 volumes:
   zookeeper:
   kafka:
+  kafka2:
+  kafka3:
 
 networks:
   default:
