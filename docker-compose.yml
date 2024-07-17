@@ -23,7 +23,7 @@ services:
     environment:
       <<: *kafka-environment
       KAFKA_BROKER_ID: 1
-      KAFKA_CFG_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092,EXTERNAL://localhost:9094
+      KAFKA_CFG_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092,EXTERNAL://${KAFKA_EXTERNAL_HOST:-kafka.dip-infra-kafka-latest-3-brokers.orb.local}:9094
     volumes:
       - kafka:/data
     ports:
@@ -37,7 +37,7 @@ services:
     environment:
       <<: *kafka-environment
       KAFKA_BROKER_ID: 2
-      KAFKA_CFG_ADVERTISED_LISTENERS: PLAINTEXT://kafka2:9092,EXTERNAL://localhost:9094
+      KAFKA_CFG_ADVERTISED_LISTENERS: PLAINTEXT://kafka2:9092,EXTERNAL://${KAFKA2_EXTERNAL_HOST:-kafka2.dip-infra-kafka-latest-3-brokers.orb.local}:9094
     volumes:
       - kafka2:/data
     ports:
@@ -51,7 +51,7 @@ services:
     environment:
       <<: *kafka-environment
       KAFKA_BROKER_ID: 3
-      KAFKA_CFG_ADVERTISED_LISTENERS: PLAINTEXT://kafka3:9092,EXTERNAL://localhost:9094
+      KAFKA_CFG_ADVERTISED_LISTENERS: PLAINTEXT://kafka3:9092,EXTERNAL://${KAFKA3_EXTERNAL_HOST:-kafka.dip-infra-kafka-latest-3-brokers.orb.local}:9094
     volumes:
       - kafka3:/data
     ports:
