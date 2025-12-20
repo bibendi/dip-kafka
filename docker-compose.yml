@@ -1,6 +1,6 @@
 services:
   kafka:
-    image: bitnami/kafka:${DIP_INFRA_KAFKA_IMAGE_TAG}
+    image: bitnamilegacy/kafka:${DIP_INFRA_KAFKA_IMAGE_TAG}
     environment:
       ALLOW_PLAINTEXT_LISTENER: "yes"
       KAFKA_ENABLE_KRAFT: "no"
@@ -13,7 +13,7 @@ services:
       KAFKA_CFG_CONTROLLER_QUORUM_VOTERS: "0@kafka:9093"
       KAFKA_CFG_CONTROLLER_LISTENER_NAMES: "CONTROLLER"
     volumes:
-      - kafka:/bitnami/kafka
+      - kafka:/bitnamilegacy/kafka
     ports:
       - 9092
       - 9093
